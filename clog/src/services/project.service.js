@@ -3,11 +3,7 @@ import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:3000/api/projects";
 
-const getAllPosts = () => {
-  return axios.get(API_URL + "/" , { headers: authHeader() });
-};
-
-const getIntelligentPosts = (body) => {
+const getIntelligentProjects = (body) => {
   let params = "?"
   console.log(body)
   for (let i = 0; i < body.length ; i++) {
@@ -19,8 +15,7 @@ const getIntelligentPosts = (body) => {
 };
 
 const postService = {
-  getAllPosts,
-  getIntelligentPosts,
+  getIntelligentProjects,
 };
 
 export default postService;

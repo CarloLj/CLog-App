@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PostService from "../services/post.service";
+import PostService from "../services/project.service";
 import AddProjectButton from "./AddProjectButton";
 import Project from "./Project";
 import { Button, Stack } from '@mui/material';
@@ -52,8 +52,7 @@ const Home = () => {
       filterArr.push("pagination_jump="+paginationJump)
     }
     filterArr.push("order_arrange=DESC","project_field=created_at")
-    console.log("sdasdasdas", filterArr)
-    PostService.getIntelligentPosts(
+    PostService.getIntelligentProjects(
       filterArr
     ).then(
       (response) => {
@@ -65,6 +64,7 @@ const Home = () => {
       }
     );
   }, [currentPage, creatorFilter, descriptionFilter, nameFilter, statusFilter, dateFilter]);
+
   return (
     <div>
     <div 
