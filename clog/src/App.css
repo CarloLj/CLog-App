@@ -66,37 +66,52 @@ body{
 
 .projectCard {
   flex: 1;
-  height: 80%;
-  overflow-x: auto;
+  height: 100%;
   border: 3px solid rgb(0, 0, 0);
   border-radius: 20px;
 }
 
 .view-wrapper {
+  display: flex;
+  flex: 1;
   margin: auto;
-  vertical-align: middle;
   width: 95%;
-  height: 90%;
+  height: 80vh;
   overflow-y: auto;
   border: 3px solid rgb(0, 0, 0);
   border-radius: 20px;
+  text-align: center;
+  justify-content: "center";
+  align-items: "center";
 }
 
-.central-bubble-view {
+.central {
+  display: flex;
+  flex: 1;
   margin: auto;
   display: grid;
+  height: 100%;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, 31%);
+  grid-template-columns: repeat(auto-fill, 24.5%);
   grid-auto-rows: 1fr;
   padding: 10px;
   text-align: center;
   transition: .2s;
 }
 
+.centered_div{
+  display: "flex"; 
+  flex-direction: "row";
+  justify-content: "center";
+  align-items: "center";
+  margin: "10px";
+  padding: "10";
+}
+
 .card-box {
   padding: 10px;
   background-color: rgb(255, 255, 255);
-  border:5px solid rgb(255, 255, 255);
+  border:5px solid rgb(0, 0, 0);
   transition: 0.2s;
 }
 

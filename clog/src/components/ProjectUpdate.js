@@ -1,9 +1,9 @@
 import React from 'react'
 import '../App.css'
 
-import AddProjectUpdateButton from '../components/AddProjectUpdateButton'
+// import AddProjectUpdateButton from '../components/AddProjectUpdateButton'
 
-const Project = (props) => {
+const ProjectUpdate = (props) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -19,9 +19,9 @@ const Project = (props) => {
                 <h4>{props.created_at}</h4>
                 <h4>{props.status}</h4>  
             </div>
-            <AddProjectUpdateButton open={open} handleClose={handleClose} handleOpen={handleOpen}/>
+            {/* <AddRelevantPointButton open={open} handleClose={handleClose} handleOpen={handleOpen}/> */}
         </div>
     );
   };
   
-  export default Project;
+  export default ProjectUpdate;

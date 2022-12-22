@@ -21,42 +21,63 @@ function App() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <div className="navbar-nav mr-auto">
+      <nav>
+        <div style={{
+          "display": "flex", 
+          "flex-direction": "row", 
+          "justify-content": "center",
+          "align-items": "center",
+          "margin": "10px",
+          "padding": "10"
+        }}>
           {currentUser && (
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                Home
-              </Link>
-            </li>
-          )};
+            <div>
+              <li>
+                <Link to={"/home"}>
+                  Home
+                </Link>
+              </li>
+            </div>
+          )}
+          {currentUser ? (
+            <div>
+              <li>
+                <a href="/login" onClick={logOut}>
+                  Logout
+                </a>
+              </li>
+            </div>
+          ) : (
+            <div 
+            style={{
+              "display": "flex", 
+              "flex-direction": "row", 
+              "justify-content": "center",
+              "align-items": "center",
+              "margin": "10px",
+              "padding": "10"
+            }}
+            >
+              <div>
+                <li>
+                  <Link to={"/login"}>
+                    Login
+                  </Link>
+                </li>
+              </div>
+              <div>
+                <li>
+                  <Link to={"/signup"}>
+                    Sign up
+                  </Link>
+                </li>
+              </div>
+            </div>
+          )}
         </div>
-        {currentUser ? (
-          <div className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
-                Logout
-              </a>
-            </li>
-          </div>
-        ) : (
-          <div className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link to={"/login"} className="nav-link">
-                Login
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/signup"} className="nav-link">
-                Sign up
-              </Link>
-            </li>
-          </div>
-        )}
       </nav>
 
-      <div className="container mt-3">
+      <div>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
