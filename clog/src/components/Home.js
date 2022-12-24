@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import PostService from "../services/project.service";
+import ProjectService from "../services/project.service";
 import AddProjectButton from "./AddProjectButton";
 import Project from "./Project";
 import { Button, Stack } from '@mui/material';
 
 const Home = () => {
-  const [posts, setPosts] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
   const [nameFilter, setNameFilter] = useState("");
@@ -52,11 +52,11 @@ const Home = () => {
       filterArr.push("pagination_jump="+paginationJump)
     }
     filterArr.push("order_arrange=DESC","project_field=created_at")
-    PostService.getIntelligentProjects(
+    ProjectService.getIntelligentProjects(
       filterArr
     ).then(
       (response) => {
-        setPosts(response.data.data.results);
+        setProjects(response.data.data.results);
         setProjectsSize(response.data.data.filtered_projects_size)
       },
       (error) => {
@@ -83,12 +83,13 @@ const Home = () => {
     </div> 
     <div className='view-wrapper'>   
       <div className='central'>
-        {!posts ? "No projects to show!" : 
-          posts.map((project, index) => {
+        {!projects ? "No projects to show!" : 
+          projects.map((project, index) => {
             return(
               <Project
                 key={index}
                 creator_id={project.creator_id} 
+                created_at={project.created_at}
                 project_id={project.project_id} 
                 status={project.status} 
                 name={project.name} 

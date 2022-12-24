@@ -4,12 +4,19 @@ import './newProject.css'
 import axios from "axios"
 import { Button, Modal, Box, Fade, Input, Backdrop } from '@mui/material';
 
-const API_URL = "http://localhost:3000/api/projectupdates";
+const API_URL = "http://localhost:3000/api/relevantpoints";
 
-const AddProjectUpdateButton = ( {handleOpen, open, handleClose} ) => {
+const AddProjectRelevantPointButton = ( {handleOpen, open, handleClose} ) => {
     return(
         <div>
-            <Button onClick={handleOpen}>+</Button>
+            <Box 
+            m={1}
+            display="flex"
+            justifyContent="flex-start"
+            alignItems="flex-end"
+            >
+                <Button onClick={handleOpen}>+</Button>
+            </Box>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -23,23 +30,12 @@ const AddProjectUpdateButton = ( {handleOpen, open, handleClose} ) => {
             >
                 <Fade in={open}>
                 <Box sx={style}>
-                <h2>Add a new Project Update</h2>
+                <h2>Add a new Relevant Point</h2>
                 <form id = "formulario" onSubmit={()=>null}>
                     <div className='grid-2'>
                         <div>
-                            <Input placeholder='Name' type='text' name='name' value={""} onChange = {() => null} required/>
-                        </div>
-                        <div>
                             <Input placeholder='Description' type='text' name = 'description' value={""} onChange = {() => null} required/>
                         </div>
-                        <div>
-                            <select placeholder='Type' id="type" name='type' onChange={() => null}>
-                                <option disabled selected>Type</option>
-                                <option value="update">Active</option>
-                                <option value="bugfix">Bug Fix</option>
-                                <option value="performance">Performance</option>
-                            </select >
-                        </div>  
                     </div>
                     <input type="submit" value = "Add Project update" formTarget='_blank'/>
                     </form>
@@ -62,4 +58,4 @@ const style = {
     p: 4,
 };
 
-  export default AddProjectUpdateButton;
+  export default AddProjectRelevantPointButton;
